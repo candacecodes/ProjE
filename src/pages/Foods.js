@@ -197,7 +197,7 @@ export default class Foods extends Component {
 		console.log(this.state);
 	};
 
-	// for displayFoodLogs function
+	// displayFoodLogs helper function
 	_renderFoodLogs = () => {
 		const foodLogs = this.state.logFood;
 		return Object.entries(foodLogs).map(([key, value], i) => {
@@ -211,7 +211,7 @@ export default class Foods extends Component {
 		});
 	};
 
-	// display food logs not working
+	// display food logs
 	displayFoodLogs = () => {
 		console.log("display food logs");
 		return (

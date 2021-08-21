@@ -5,7 +5,7 @@ export default class Foods extends Component {
 		food: [],
 		displayFoods: false,
 		displayLogs: false,
-		logFood: [],
+		logFood: {},
 		date: "001",
 		meal: "breakfast",
 		foodsSelected: [],
@@ -169,11 +169,16 @@ export default class Foods extends Component {
 		const meal = this.state.meal;
 		const foodsSelectedSubmission = this.state.foodsSelected;
 		const reaction = this.state.reaction;
-		const newLog = [date, meal, foodsSelectedSubmission, reaction];
-		this.setState({
-			logFood: [...this.state.logFood, newLog],
-		});
-		console.log(this.state);
+		const newLog = {
+			dateKey: date,
+			mealKey: meal,
+			foodSelectedKey: foodsSelectedSubmission,
+			reactionKey: reaction,
+		};
+		this.setState((prevState) => ({
+			logFood: { ...prevState.logFood, newLog },
+		}));
+		console.log(this.state.logFood);
 	};
 
 	//handle date change
@@ -192,11 +197,29 @@ export default class Foods extends Component {
 		console.log(this.state);
 	};
 
+	// for displayFoodLogs function
+	_renderFoodLogs = () => {
+		const foodLogs = this.state.logFood;
+		return Object.entries(foodLogs).map(([key, value], i) => {
+			return (
+				<div>
+					{value.dateKey};
+					<br />
+					{value.foodSelectedKey}
+				</div>
+			);
+		});
+	};
+
 	// display food logs not working
 	displayFoodLogs = () => {
 		console.log("display food logs");
-		console.log(this.state.logFood);
-		return <div>{this.state.logFood}</div>;
+		return (
+			<>
+				<div>{this._renderFoodLogs()}</div>
+			</>
+		);
+
 		// this.state.logFood.map((log) => {
 		// 	return (
 		// 		<>

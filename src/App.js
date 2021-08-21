@@ -38,7 +38,7 @@ export default class App extends Component {
 				<BrowserRouter>
 					<Switch>
 						<main id="page-wrap">
-							{/* <Route exact path="/" component={Home} /> */}
+							<Route exact path="/menu" component={Menu} />
 							<Route exact path="/foods" component={Foods} />
 							<Route exact path="/foodlogs" component={FoodLogs} />
 							<Route exact path="/reactionlogs" component={ReactionLogs} />

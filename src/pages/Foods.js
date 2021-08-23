@@ -175,11 +175,13 @@ export default class Foods extends Component {
 			foodSelectedKey: foodsSelectedSubmission,
 			reactionKey: reaction,
 		};
+
+		// this set state only preserves one object
 		this.setState((prevState) => ({
-			logFood: { ...prevState.logFood, newLog },
+			logFood: { ...prevState.logFood, ...newLog },
 		}));
 
-		console.log(this.state.logFood);
+		console.log(this.state);
 	};
 
 	//handle date change

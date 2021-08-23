@@ -34,7 +34,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<>
-				<Header />
+				{/* <Header /> */}
 				<BrowserRouter>
 					<Switch>
 						<main id="page-wrap">

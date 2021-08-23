@@ -1,3 +1,36 @@
 .App {
 	text-align: center;
 }
+
+.card {
+	border: 1px solid black;
+	padding: 10px;
+	text-align: center;
+	width: 30%;
+}
+
+#leftbox {
+	float: left;
+	background: lightsteelblue;
+	width: 25%;
+	height: 450px;
+}
+#middlebox {
+	float: left;
+	background: Green;
+	width: 50%;
+	height: 280px;
+}
+#rightbox {
+	float: right;
+	background: blue;
+	width: 25%;
+	height: 280px;
+}
+
+#outerdiv {
+	padding: 20px;
+	/* display: grid; */
+	place-items: center;
+	align-content: center;
+}

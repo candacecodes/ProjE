@@ -129,11 +129,11 @@ export default class Foods extends Component {
 						defaultValue={this.state.reaction}
 						onChange={(value) => this.handleReactionChange(value)}
 					>
-						<option value="good">&#128522;</option>
-						<option value="neutral">&#128528;</option>
-						<option value="tired">&#128555;</option>
-						<option value="sleepy">&#128564;</option>
-						<option value="nauseous">&#129314;</option>
+						<option value="good">&#128522; Good</option>
+						<option value="neutral">&#128528; Neutral</option>
+						<option value="tired">&#128555; Tired </option>
+						<option value="sleepy">&#128564; Sleepy</option>
+						<option value="nauseous">&#129314; Nauseous</option>
 					</select>
 					<br />
 					<br />
@@ -178,6 +178,7 @@ export default class Foods extends Component {
 		this.setState((prevState) => ({
 			logFood: { ...prevState.logFood, newLog },
 		}));
+
 		console.log(this.state.logFood);
 	};
 
@@ -205,7 +206,11 @@ export default class Foods extends Component {
 				<div>
 					{value.dateKey};
 					<br />
+					{value.mealKey}
+					<br />
 					{value.foodSelectedKey}
+					<br />
+					{value.reactionKey}
 				</div>
 			);
 		});
@@ -234,35 +239,38 @@ export default class Foods extends Component {
 	render() {
 		return (
 			<>
-				<form onSubmit={(e) => this.handleSubmit(e)}>
-					<label>
-						Add Food : <br />
-						<input
-							type="text"
-							name="input"
-							value={this.state.input}
-							onChange={this.handleChange}
-						/>
-					</label>
-					<input type="submit" value="Submit" />
-					<br />
-					<br />
-				</form>
-				<div>
-					{" "}
-					<button onClick={this.displayFoodsToggle}>Food List</button>
-					<br />
-					{this.state.displayFoods ? this.renderFoods() : null}
-				</div>
-				<div>
-					<button onClick={this.logFoodToggle}>Log a Meal</button>
-					<br />
-					<div>
-						<button onClick={this.displayFoodLogToggle}>See Food Logs</button>
+				<div id="outerdiv">
+					<div class="card" id="leftbox">
+						<form onSubmit={(e) => this.handleSubmit(e)}>
+							<label>
+								Add Food to Track : <br />
+								<input
+									type="text"
+									name="input"
+									value={this.state.input}
+									onChange={this.handleChange}
+								/>
+							</label>
+							<input type="submit" value="Submit" />
+							<br />
+							<br />
+						</form>
+						<button onClick={this.displayFoodsToggle}>Food List</button>
+						<br />
+						{this.state.displayFoods ? this.renderFoods() : null}
 					</div>
-					{this.state.logFood ? this.logFood() : null}
+
+					<div class="card" id="leftbox">
+						<button onClick={this.logFoodToggle}>Log a Meal</button>
+						{this.state.logFood ? this.logFood() : null}
+
+						<br />
+					</div>
+					<div class="card" id="leftbox">
+						<button onClick={this.displayFoodLogToggle}>See Food Logs</button>
+						<div>{this.state.displayLogs ? this.displayFoodLogs() : null}</div>
+					</div>
 				</div>
-				<div>{this.state.displayLogs ? this.displayFoodLogs() : null}</div>
 			</>
 		);
 	}

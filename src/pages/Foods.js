@@ -175,8 +175,10 @@ export default class Foods extends Component {
 		};
 
 		// this set state only preserves one object
+		let t = date.toString();
+
 		this.setState((prevState) => ({
-			logFood: { ...prevState.logFood, ...newLog },
+			logFood: { ...prevState.logFood, [t]: newLog },
 		}));
 
 		console.log(this.state.logFood);

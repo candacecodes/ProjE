@@ -13,6 +13,9 @@ export default class Foods extends Component {
 		meal: "breakfast",
 		foodsSelected: [],
 		reaction: "neutral",
+		dateFilter: [],
+		reactionFilter: [],
+		foodFilter: [],
 	};
 
 	// handle submit for food list
@@ -44,14 +47,14 @@ export default class Foods extends Component {
 		}));
 	};
 
-	//toggle state for see food logs
+	//toggle state for see food logs button
 	displayFoodLogToggle = () => {
 		this.setState((prevState) => ({
 			displayLogs: !prevState.displayLogs,
 		}));
 	};
 
-	// toggle for filter by date for food logs
+	// toggle for filter by date button
 	displayLogByDateToggle = () => {
 		this.setState((prevState) => ({
 			displayLogByDateToggle: !prevState.displayLogByDateToggle,
@@ -59,7 +62,7 @@ export default class Foods extends Component {
 		console.log(this.state.displayLogByDateToggle);
 	};
 
-	// toggle for filter by food
+	// toggle for filter by food button
 	displayLogByFoodToggle = () => {
 		this.setState((prevState) => ({
 			displayLogByFoodToggle: !prevState.displayLogByFoodToggle,
@@ -67,6 +70,7 @@ export default class Foods extends Component {
 		console.log(this.state.displayLogByFoodToggle);
 	};
 
+	// toggle for filter by reaction button
 	displayLogByReactionToggle = () => {
 		this.setState((prevState) => ({
 			displayLogByReactionToggle: !prevState.displayLogByReactionToggle,
@@ -253,16 +257,6 @@ export default class Foods extends Component {
 				<div>{this._renderFoodLogs()}</div>
 			</>
 		);
-
-		// this.state.logFood.map((log) => {
-		// 	return (
-		// 		<>
-		// 			<div>
-		// 				Food Log {log} <button>Delete</button>
-		// 			</div>
-		// 		</>
-		// 	);
-		// });
 	};
 
 	render() {

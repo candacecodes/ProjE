@@ -3,10 +3,10 @@ import React, { Component } from "react";
 export default class Foods extends Component {
 	state = {
 		food: [],
+		logFood: {},
 		displayFoods: false,
 		displayLogs: false,
-		logFood: {},
-		date: "001",
+		date: "01-01-2021",
 		meal: "breakfast",
 		foodsSelected: [],
 		reaction: "neutral",
@@ -80,7 +80,6 @@ export default class Foods extends Component {
 	logFood = () => {
 		return (
 			<>
-				<h1>Food Logs Page</h1>
 				<div>
 					<h3>Log Meal</h3>
 					<br />
@@ -88,9 +87,8 @@ export default class Foods extends Component {
 					<input
 						onChange={(value) => this.handleDateChange(value)}
 						type="date"
-						min="2021-01-01"
+						min="2020-01-01"
 						max="2021-12-31"
-						value="2020-01-01"
 					></input>
 					<br />
 					<br />
@@ -181,7 +179,7 @@ export default class Foods extends Component {
 			logFood: { ...prevState.logFood, ...newLog },
 		}));
 
-		console.log(this.state);
+		console.log(this.state.logFood);
 	};
 
 	//handle date change
@@ -206,7 +204,7 @@ export default class Foods extends Component {
 		return Object.entries(foodLogs).map(([key, value], i) => {
 			return (
 				<div>
-					{value.dateKey};
+					{value.dateKey}
 					<br />
 					{value.mealKey}
 					<br />

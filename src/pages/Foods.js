@@ -6,6 +6,9 @@ export default class Foods extends Component {
 		logFood: {},
 		displayFoods: false,
 		displayLogs: false,
+		displayLogByDateToggle: false,
+		displayLogByFoodToggle: false,
+		displayLogByReactionToggle: false,
 		date: "01-01-2021",
 		meal: "breakfast",
 		foodsSelected: [],
@@ -46,6 +49,29 @@ export default class Foods extends Component {
 		this.setState((prevState) => ({
 			displayLogs: !prevState.displayLogs,
 		}));
+	};
+
+	// toggle for filter by date for food logs
+	displayLogByDateToggle = () => {
+		this.setState((prevState) => ({
+			displayLogByDateToggle: !prevState.displayLogByDateToggle,
+		}));
+		console.log(this.state.displayLogByDateToggle);
+	};
+
+	// toggle for filter by food
+	displayLogByFoodToggle = () => {
+		this.setState((prevState) => ({
+			displayLogByFoodToggle: !prevState.displayLogByFoodToggle,
+		}));
+		console.log(this.state.displayLogByFoodToggle);
+	};
+
+	displayLogByReactionToggle = () => {
+		this.setState((prevState) => ({
+			displayLogByReactionToggle: !prevState.displayLogByReactionToggle,
+		}));
+		console.log(this.state.displayLogByReactionToggle);
 	};
 
 	// delete saved food
@@ -213,6 +239,7 @@ export default class Foods extends Component {
 					{value.foodSelectedKey}
 					<br />
 					{value.reactionKey}
+					<br />
 				</div>
 			);
 		});
@@ -271,6 +298,15 @@ export default class Foods extends Component {
 					<div class="card" id="leftbox">
 						<button onClick={this.displayFoodLogToggle}>See Food Logs</button>
 						<div>{this.state.displayLogs ? this.displayFoodLogs() : null}</div>
+						<button onClick={this.displayLogByDateToggle}>
+							Filter by Date
+						</button>
+						<button onClick={this.displayLogByFoodToggle}>
+							Filter by Food
+						</button>
+						<button onClick={this.displayLogByReactionToggle}>
+							Filter by Reaction
+						</button>
 					</div>
 				</div>
 			</>

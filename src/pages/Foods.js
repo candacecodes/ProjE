@@ -2,17 +2,25 @@ import React, { Component } from "react";
 
 export default class Foods extends Component {
 	state = {
+		// food state if part of the list for users
 		food: [],
+
+		// log food is for the logged entries
 		logFood: {},
+
+		// toggle handlers
 		displayFoods: false,
 		displayLogs: false,
 		displayLogByDateToggle: false,
 		displayLogByFoodToggle: false,
 		displayLogByReactionToggle: false,
+		// onChange handlers for state
 		date: "01-01-2021",
 		meal: "breakfast",
 		foodsSelected: [],
 		reaction: "neutral",
+
+		// used for when filtering food entries
 		dateFilter: [],
 		reactionFilter: [],
 		foodFilter: [],
@@ -88,7 +96,7 @@ export default class Foods extends Component {
 
 	// render food list after clicking food list
 	renderFoods = () => {
-		console.log(this.state);
+		console.log(this.state.logFood);
 		return (
 			<>
 				<div>
@@ -176,7 +184,8 @@ export default class Foods extends Component {
 		if (!this.state.foodsSelected.includes(item)) {
 			this.setState({ foodsSelected: [...this.state.foodsSelected, item] });
 		} else {
-			this.state.foodsSelected.filter((food) => food !== item);
+			let filtered = this.state.foodsSelected.filter((food) => food != item);
+			this.setState({ foodsSelected: filtered });
 		}
 		console.log(this.state.foodsSelected);
 	};
@@ -259,6 +268,47 @@ export default class Foods extends Component {
 		);
 	};
 
+	filterByFood = () => {
+		return (
+			<>
+				<div>
+					{this.state.food.map((item) => {
+						return (
+							<div>
+								{item}
+								<br />
+								<button onClick={() => this.addToFoodFilter(item)}>
+									Select
+								</button>
+							</div>
+						);
+					})}
+				</div>
+			</>
+		);
+	};
+
+	addToFoodFilter = (item) => {
+		if (!this.state.foodFilter.includes(item)) {
+			this.setState({ foodFilter: [...this.state.foodFilter, item] });
+		}
+		console.log(this.state.foodFilter);
+	};
+
+	resetFoodFilter = () => {
+		this.setState({ foodFilter: [] });
+		console.log(this.state.foodFilter);
+	};
+
+	findMatches = () => {
+		// go through logFood object[foodSelectedKey] == foodsSelected
+		// this.state.foodsSelected.filter((foodFilter) => foodFilter == logFood[foodSelectedKey]
+		let logFood = this.state.logFood;
+		let foodFilter = this.state.foodFilter;
+		let matched = this.state.foodFilter.filter((e) => e == logFood.logFood);
+		console.log(matched);
+	};
+
 	render() {
 		return (
 			<>
@@ -290,14 +340,33 @@ export default class Foods extends Component {
 						<br />
 					</div>
 					<div class="card" id="leftbox">
+						{/* toggle for see foods  */}
 						<button onClick={this.displayFoodLogToggle}>See Food Logs</button>
 						<div>{this.state.displayLogs ? this.displayFoodLogs() : null}</div>
-						<button onClick={this.displayLogByDateToggle}>
+						<br />
+
+						{/* toggle to filter by date */}
+						{/* <button onClick={this.displayLogByDateToggle}>
 							Filter by Date
 						</button>
+						<br /> */}
+						{/* <div>{this.state.displayLogByDateToggle ? this.filterByDate() : null}</div> */}
+
+						{/* toggle to filter by food  */}
 						<button onClick={this.displayLogByFoodToggle}>
 							Filter by Food
 						</button>
+						<br />
+						<button onClick={this.findMatches}>Find Matches</button>
+						<br />
+						<button onClick={this.resetFoodFilter}>Reset Filter</button>
+						<br />
+						<div>
+							{this.state.displayLogByFoodToggle ? this.filterByFood() : null}
+						</div>
+						<br />
+
+						{/* toggle to filter by reaction  */}
 						<button onClick={this.displayLogByReactionToggle}>
 							Filter by Reaction
 						</button>

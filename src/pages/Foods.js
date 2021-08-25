@@ -6,7 +6,7 @@ export default class Foods extends Component {
 		food: [],
 
 		// log food is for the logged entries
-		logFood: {},
+		foodLog: {},
 
 		// toggle handlers
 		displayFoods: false,
@@ -49,9 +49,9 @@ export default class Foods extends Component {
 	};
 
 	//toggle state for add food
-	logFoodToggle = () => {
+	foodLogToggle = () => {
 		this.setState((prevState) => ({
-			logFood: !prevState.logFood,
+			foodLog: !prevState.foodLog,
 		}));
 	};
 
@@ -96,7 +96,7 @@ export default class Foods extends Component {
 
 	// render food list after clicking food list
 	renderFoods = () => {
-		console.log(this.state.logFood);
+		console.log(this.state.foodLog);
 		return (
 			<>
 				<div>
@@ -115,7 +115,7 @@ export default class Foods extends Component {
 	};
 
 	// log food display function
-	logFood = () => {
+	foodLog = () => {
 		return (
 			<>
 				<div>
@@ -217,10 +217,10 @@ export default class Foods extends Component {
 		let t = date.toString();
 
 		this.setState((prevState) => ({
-			logFood: { ...prevState.logFood, [t]: newLog },
+			foodLog: { ...prevState.foodLog, [t]: newLog },
 		}));
 
-		console.log(this.state.logFood);
+		console.log(this.state.foodLog);
 	};
 
 	//handle date change
@@ -241,7 +241,7 @@ export default class Foods extends Component {
 
 	// displayFoodLogs helper function
 	_renderFoodLogs = () => {
-		const foodLogs = this.state.logFood;
+		const foodLogs = this.state.foodLog;
 		return Object.entries(foodLogs).map(([key, value], i) => {
 			return (
 				<div>
@@ -299,14 +299,20 @@ export default class Foods extends Component {
 		this.setState({ foodFilter: [] });
 		console.log(this.state.foodFilter);
 	};
-
+	// nonfunctional
 	findMatches = () => {
-		// go through logFood object[foodSelectedKey] == foodsSelected
-		// this.state.foodsSelected.filter((foodFilter) => foodFilter == logFood[foodSelectedKey]
-		let logFood = this.state.logFood;
-		let foodFilter = this.state.foodFilter;
-		let matched = this.state.foodFilter.filter((e) => e == logFood.logFood);
-		console.log(matched);
+		// go through foodLog object[foodSelectedKey] == foodsSelected
+		// this.state.foodsSelected.filter((foodFilter) => foodFilter == foodLog[foodSelectedKey]
+		// let foodLog = this.state.foodLog;
+		// console.log("food entries", foodLog);
+		// let foodFilter = this.state.foodFilter;
+		// console.log("food filter items", foodFilter);
+		// let matched = foodLog.filter((item) => {
+		// 	return foodLog.foodsSelectedKey.map`((food) => {
+		// 		return foodFilter.includes(food);
+		// 	});
+		// });
+		// console.log(matched);
 	};
 
 	render() {
@@ -334,8 +340,8 @@ export default class Foods extends Component {
 					</div>
 
 					<div class="card" id="leftbox">
-						<button onClick={this.logFoodToggle}>Log a Meal</button>
-						{this.state.logFood ? this.logFood() : null}
+						<button onClick={this.foodLogToggle}>Log a Meal</button>
+						{this.state.foodLog ? this.foodLog() : null}
 
 						<br />
 					</div>

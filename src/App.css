@@ -34,3 +34,7 @@
 	place-items: center;
 	align-content: center;
 }
+
+body {
+	background-color: lightgrey;
+}

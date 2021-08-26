@@ -301,18 +301,19 @@ export default class Foods extends Component {
 	};
 	// nonfunctional
 	findMatches = () => {
-		// go through foodLog object[foodSelectedKey] == foodsSelected
-		// this.state.foodsSelected.filter((foodFilter) => foodFilter == foodLog[foodSelectedKey]
-		// let foodLog = this.state.foodLog;
-		// console.log("food entries", foodLog);
-		// let foodFilter = this.state.foodFilter;
-		// console.log("food filter items", foodFilter);
-		// let matched = foodLog.filter((item) => {
-		// 	return foodLog.foodsSelectedKey.map`((food) => {
-		// 		return foodFilter.includes(food);
-		// 	});
-		// });
-		// console.log(matched);
+		// return all objects where foodLog.foodsSelectedKey is in foodFilter
+		const foodLog = this.state.foodLog;
+		const foodFilter = this.state.foodFilter;
+		console.log(foodFilter);
+		Object.keys(foodLog).map((key, index) => {
+			console.log("food Selected", foodLog[key], foodLog[key].foodSelectedKey);
+			// arr1.some(r=> arr2.includes(r)) to find match in arrays
+			if (foodLog[key].foodSelectedKey.some((r) => foodFilter.includes(r))) {
+				console.log("true");
+			} else {
+				console.log("false");
+			}
+		});
 	};
 
 	render() {

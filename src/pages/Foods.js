@@ -240,9 +240,8 @@ export default class Foods extends Component {
 	};
 
 	// displayFoodLogs helper function
-	_renderFoodLogs = () => {
-		const foodLogs = this.state.foodLog;
-		return Object.entries(foodLogs).map(([key, value], i) => {
+	_renderFoodLogs = (foodLog) => {
+		return Object.entries(foodLog).map(([key, value], i) => {
 			return (
 				<div>
 					{value.dateKey}
@@ -261,9 +260,10 @@ export default class Foods extends Component {
 	// display food logs
 	displayFoodLogs = () => {
 		console.log("display food logs");
+		const foodLog = this.state.foodLog;
 		return (
 			<>
-				<div>{this._renderFoodLogs()}</div>
+				<div>{this._renderFoodLogs(foodLog)}</div>
 			</>
 		);
 	};
@@ -306,13 +306,16 @@ export default class Foods extends Component {
 		const foodFilter = this.state.foodFilter;
 		console.log(foodFilter);
 		Object.keys(foodLog).map((key, index) => {
-			console.log("food Selected", foodLog[key], foodLog[key].foodSelectedKey);
+			// console.log("food Selected", foodLog[key], foodLog[key].foodSelectedKey);
 			// arr1.some(r=> arr2.includes(r)) to find match in arrays
 			if (foodLog[key].foodSelectedKey.some((r) => foodFilter.includes(r))) {
-				console.log("true");
+				const matchedLog = foodLog[key];
+				console.log(matchedLog);
 			} else {
 				console.log("false");
 			}
+			const filterMatches = this.state.filterMatches;
+			// this._renderFoodLogs(filterMatches);
 		});
 	};
 
@@ -352,20 +355,17 @@ export default class Foods extends Component {
 						<div>{this.state.displayLogs ? this.displayFoodLogs() : null}</div>
 						<br />
 
-						{/* toggle to filter by date */}
-						{/* <button onClick={this.displayLogByDateToggle}>
-							Filter by Date
-						</button>
-						<br /> */}
-						{/* <div>{this.state.displayLogByDateToggle ? this.filterByDate() : null}</div> */}
-
 						{/* toggle to filter by food  */}
-						<button onClick={this.displayLogByFoodToggle}>
-							Filter by Food
-						</button>
-						<br />
-						<button onClick={this.findMatches}>Find Matches</button>
-						<br />
+						<div>
+							<button onClick={this.displayLogByFoodToggle}>
+								Filter by Food
+							</button>
+						</div>
+						<div>
+							<button onClick={this.findMatches}>Find Matches</button>
+							<br />
+						</div>
+
 						<button onClick={this.resetFoodFilter}>Reset Filter</button>
 						<br />
 						<div>
@@ -377,6 +377,13 @@ export default class Foods extends Component {
 						<button onClick={this.displayLogByReactionToggle}>
 							Filter by Reaction
 						</button>
+
+						{/* toggle to filter by date */}
+						{/* <button onClick={this.displayLogByDateToggle}>
+							Filter by Date
+						</button>
+						<br /> */}
+						{/* <div>{this.state.displayLogByDateToggle ? this.filterByDate() : null}</div> */}
 					</div>
 				</div>
 			</>

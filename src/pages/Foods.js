@@ -24,6 +24,9 @@ export default class Foods extends Component {
 		dateFilter: [],
 		reactionFilter: [],
 		foodFilter: [],
+
+		// creating an object for matched logs
+		// matchedLog: {},
 	};
 
 	// handle submit for food list
@@ -299,24 +302,35 @@ export default class Foods extends Component {
 		this.setState({ foodFilter: [] });
 		console.log(this.state.foodFilter);
 	};
-	// nonfunctional
+
 	findMatches = () => {
-		// return all objects where foodLog.foodsSelectedKey is in foodFilter
 		const foodLog = this.state.foodLog;
 		const foodFilter = this.state.foodFilter;
-		console.log(foodFilter);
+		console.log("food filter", foodFilter);
 		Object.keys(foodLog).map((key, index) => {
-			// console.log("food Selected", foodLog[key], foodLog[key].foodSelectedKey);
-			// arr1.some(r=> arr2.includes(r)) to find match in arrays
 			if (foodLog[key].foodSelectedKey.some((r) => foodFilter.includes(r))) {
 				const matchedLog = foodLog[key];
-				console.log(matchedLog);
+				this.renderMatchedLogs(matchedLog);
 			} else {
-				console.log("false");
+				// do nothing
 			}
-			const filterMatches = this.state.filterMatches;
-			// this._renderFoodLogs(filterMatches);
 		});
+	};
+
+	renderMatchedLogs = (matchedLog) => {
+		console.log(matchedLog.dateKey);
+		return (
+			<div>
+				{matchedLog.dateKey}
+				<br />
+				{matchedLog.mealKey}
+				<br />
+				{matchedLog.foodSelectedKey}
+				<br />
+				{matchedLog.reactionKey}
+				<br />
+			</div>
+		);
 	};
 
 	render() {
@@ -361,13 +375,12 @@ export default class Foods extends Component {
 								Filter by Food
 							</button>
 						</div>
+						<button onClick={this.resetFoodFilter}>Reset Filter</button>
+						<br />
 						<div>
 							<button onClick={this.findMatches}>Find Matches</button>
 							<br />
 						</div>
-
-						<button onClick={this.resetFoodFilter}>Reset Filter</button>
-						<br />
 						<div>
 							{this.state.displayLogByFoodToggle ? this.filterByFood() : null}
 						</div>

@@ -26,7 +26,7 @@ export default class Foods extends Component {
 		foodFilter: [],
 
 		// creating an object for matched logs
-		// matchedLog: {},
+		logs: null,
 	};
 
 	// handle submit for food list
@@ -307,18 +307,24 @@ export default class Foods extends Component {
 		const foodLog = this.state.foodLog;
 		const foodFilter = this.state.foodFilter;
 		console.log("food filter", foodFilter);
-		Object.keys(foodLog).map((key, index) => {
+
+		const matchedLogs = [];
+		Object.keys(foodLog).forEach((key, index) => {
 			if (foodLog[key].foodSelectedKey.some((r) => foodFilter.includes(r))) {
 				const matchedLog = foodLog[key];
-				this.renderMatchedLogs(matchedLog);
+				// this returns the div element from renderMatchedLogs
+				matchedLogs.push(this.renderMatchedLogs(matchedLog));
 			} else {
 				// do nothing
 			}
+
+			const logs = <>{matchedLogs.map((div) => div)}</>;
+
+			this.setState({ logs });
 		});
 	};
 
 	renderMatchedLogs = (matchedLog) => {
-		console.log(matchedLog.dateKey);
 		return (
 			<div>
 				{matchedLog.dateKey}
@@ -380,6 +386,7 @@ export default class Foods extends Component {
 						<div>
 							<button onClick={this.findMatches}>Find Matches</button>
 							<br />
+							{this.state.logs}
 						</div>
 						<div>
 							{this.state.displayLogByFoodToggle ? this.filterByFood() : null}

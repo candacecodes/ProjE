@@ -355,22 +355,20 @@ export default class Foods extends Component {
 								Add Food to Track : <br />
 								<br />
 								Common Eczema Triggers:
-								<select
-									defaultValue={this.state.meal}
-									onChange={(value) => this.handleMealChange(value)}
-								>
-									<option value="breakfast">Citrus Fruits</option>
-									<option value="lunch">Dairy</option>
-									<option value="dinner">Eggs</option>
-									<option value="dinner">Fish</option>
-									<option value="dinner">Gluten or Wheat</option>
-									<option value="dinner">Soy</option>
-									<option value="dinner">
+								<select value={this.state.input} onChange={this.handleChange}>
+									<option value="Citrus Fruits">Citrus Fruits</option>
+									<option value="Dairy">Dairy</option>
+									<option value="Eggs">Eggs</option>
+									<option value="Fish">Fish</option>
+									<option value="Gluten or Wheat">Gluten or Wheat</option>
+									<option value="Soy">Soy</option>
+									<option value="Spices">
 										Spices (Vanilla, Cloves, Cinnamon)
 									</option>
-									<option value="dinner">Shellfish</option>
-									<option value="dinner">Tomatoes</option>
+									<option value="Shellfish">Shellfish</option>
+									<option value="Tomatoes">Tomatoes</option>
 								</select>
+								<input type="submit" value="Submit" />
 								<br />
 								<br />
 								Include Custom Food:

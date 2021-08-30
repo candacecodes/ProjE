@@ -353,6 +353,27 @@ export default class Foods extends Component {
 						<form onSubmit={(e) => this.handleSubmit(e)}>
 							<label>
 								Add Food to Track : <br />
+								<br />
+								Common Eczema Triggers:
+								<select
+									defaultValue={this.state.meal}
+									onChange={(value) => this.handleMealChange(value)}
+								>
+									<option value="breakfast">Citrus Fruits</option>
+									<option value="lunch">Dairy</option>
+									<option value="dinner">Eggs</option>
+									<option value="dinner">Fish</option>
+									<option value="dinner">Gluten or Wheat</option>
+									<option value="dinner">Soy</option>
+									<option value="dinner">
+										Spices (Vanilla, Cloves, Cinnamon)
+									</option>
+									<option value="dinner">Shellfish</option>
+									<option value="dinner">Tomatoes</option>
+								</select>
+								<br />
+								<br />
+								Include Custom Food:
 								<input
 									type="text"
 									name="input"

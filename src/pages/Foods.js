@@ -162,17 +162,23 @@ export default class Foods extends Component {
 						);
 					})}
 					<br />
-					Food Reaction
+					Current Skin Condition
 					<br />
 					<select
 						defaultValue={this.state.reaction}
 						onChange={(value) => this.handleReactionChange(value)}
 					>
-						<option value="good">&#128522; Good</option>
-						<option value="neutral">&#128528; Neutral</option>
-						<option value="tired">&#128555; Tired </option>
-						<option value="sleepy">&#128564; Sleepy</option>
-						<option value="nauseous">&#129314; Nauseous</option>
+						<option value="dry">Dry Skin</option>
+						<option value="itching">Itching</option>
+						<option value="patches">Red/brown patches</option>
+						<option value="bumps">Small, raised bumps</option>
+						<option value="dyshydrotic">
+							Small, raised bumps, leaking fluid
+						</option>
+						<option value="thickened">Thickened, cracked, scaly skin</option>
+						<option value="scratching">
+							Raw, sensitive, swollen skin from scratching
+						</option>
 					</select>
 					<br />
 					<br />

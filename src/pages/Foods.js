@@ -168,19 +168,20 @@ export default class Foods extends Component {
 						defaultValue={this.state.reaction}
 						onChange={(value) => this.handleReactionChange(value)}
 					>
-						<option value="dry">Dry Skin</option>
-						<option value="itching">Itching</option>
-						<option value="patches">Red/brown patches</option>
-						<option value="bumps">Small, raised bumps</option>
-						<option value="dyshydrotic">
+						<option value="Dry Skin">Dry Skin</option>
+						<option value="Itching">Itching</option>
+						<option value="Red/brown patches">Red/brown patches</option>
+						<option value="Raised bumps">Small, raised bumps</option>
+						<option value="Small, raised bumps, leaking fluid">
 							Small, raised bumps, leaking fluid
 						</option>
-						<option value="thickened">Thickened, cracked, scaly skin</option>
-						<option value="scratching">
+						<option value="Thickened, cracked, scaly skin">
+							Thickened, cracked, scaly skin
+						</option>
+						<option value="Raw, sensitive, swollen skin from scratching">
 							Raw, sensitive, swollen skin from scratching
 						</option>
 					</select>
-					<br />
 					<br />
 					<button onClick={() => this.submitFoodLog()}>Submit</button>
 				</div>
@@ -355,7 +356,11 @@ export default class Foods extends Component {
 								Add Food to Track : <br />
 								<br />
 								Common Eczema Triggers:
-								<select value={this.state.input} onChange={this.handleChange}>
+								<select
+									name="input"
+									value={this.state.input}
+									onChange={this.handleChange}
+								>
 									<option value="Citrus Fruits">Citrus Fruits</option>
 									<option value="Dairy">Dairy</option>
 									<option value="Eggs">Eggs</option>

@@ -384,11 +384,12 @@ export default class Foods extends Component {
 									onChange={this.handleChange}
 								/>
 							</label>
+							<br />
 							<input type="submit" value="Submit" />
 							<br />
 							<br />
 						</form>
-						<button onClick={this.displayFoodsToggle}>Food List</button>
+						<button onClick={this.displayFoodsToggle}>See Food List</button>
 						<br />
 						{this.state.displayFoods ? this.renderFoods() : null}
 					</div>

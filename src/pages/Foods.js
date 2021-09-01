@@ -268,24 +268,32 @@ export default class Foods extends Component {
 		if (this.state.foodLog[date]) {
 			// returns food values from matching date
 			let foods = this.state.foodLog[date].foodSelectedKey;
+			let reaction = this.state.foodLog[date].reactionKey;
 			console.log(foods);
+			this.updateReactions(foods, reaction);
 		} else {
 			console.log("no match");
 		}
 	};
 
-	// create reactionLog for that food in reactions state
-
-	// if there's no matching food object
-	// create a new food object and update state
-	// { food1 {
-	// [reaction1]: 0, [reaction2]: 0, etc. do it for all possible reactions }
-	// }
-	// can i do the hash within a hash?
-	// find the food object
-	// find the reaction key
-	// update its value by 1
-	// }
+	updateReactions = (foods, reaction) => {
+		foods.forEach((food) => {
+			console.log(food, reaction);
+			if (!this.state.reactions[food]) {
+				// create a new food object { [reaction] = 1 }
+				let newReaction = { food: { reaction: 1 } };
+				console.log("reaction", newReaction);
+				// then set state
+				// this.setState((prevState) => ({
+				// 	reactions: { ...prevState.reactions, [food]: reaction = 0}
+				// }));
+			} else {
+				// something like this
+				// this.state.reactions.food[reaction] += 1
+				console.log("update reaction function");
+			}
+		});
+	};
 
 	// when rendering which foods are triggers
 	// go through foods, and find values that are highest

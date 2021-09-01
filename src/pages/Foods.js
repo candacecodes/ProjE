@@ -247,7 +247,9 @@ export default class Foods extends Component {
 	};
 
 	formatDate = (date) => {
-		let d = new Date(date),
+		// const newReactionForDate-1/2 = {
+		// take the date - 1/ 2
+		var d = new Date(date),
 			month = "" + (d.getMonth() + 1),
 			day = "" + d.getDate(),
 			year = d.getFullYear();
@@ -255,13 +257,23 @@ export default class Foods extends Component {
 		if (month.length < 2) month = "0" + month;
 		if (day.length < 2) day = "0" + day;
 
-		console.log([year, month, day].join("-"));
+		let twoDaysBefore = [year, month, day].join("-");
+		// find key for that date in foodLog
+		this.findMatchingFoodLog(twoDaysBefore);
 	};
 
-	// const newReactionForDate-1/2 = {
-	// take the date - 1/ 2
-	// find key for that date in foodLog
 	// take food values
+	findMatchingFoodLog = (date) => {
+		console.log(date); // date that is two days before logged input
+		if (this.state.foodLog[date]) {
+			// returns food values from matching date
+			let foods = this.state.foodLog[date].foodSelectedKey;
+			console.log(foods);
+		} else {
+			console.log("no match");
+		}
+	};
+
 	// create reactionLog for that food in reactions state
 
 	// if there's no matching food object

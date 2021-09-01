@@ -295,8 +295,10 @@ export default class Foods extends Component {
 		});
 	};
 
+	// after the updateReactions function, the values should be update to
+	// { food: {reaction1 : 1}, { reaction2 : 2 }, { reaction3 : 3 }, etc }
 	// when rendering which foods are triggers
-	// go through foods, and find values that are highest
+	// go through reactions list, find foods that have high values and return them
 
 	//handle date change
 	handleDateChange = (e) => {

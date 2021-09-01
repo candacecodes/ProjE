@@ -283,16 +283,20 @@ export default class Foods extends Component {
 				// create a new food object { [reaction] = 1 }
 				let newReaction = { [food]: { [reaction]: 1 } };
 				console.log("reaction", newReaction);
-				// then set state
-				// this.setState((prevState) => ({
-				// 	reactions: { ...prevState.reactions, [food]: reaction = 0}
-				// }));
+				this.setState((prevState) => ({
+					reactions: { ...prevState.reactions, newReaction },
+				}));
 			} else {
-				// something like this
-				// this.state.reactions.food[reaction] += 1
-				console.log("update reaction function");
+				// [food][reaction] : += 1
+				this.setState((prevState) => ({
+					reactions: {
+						...prevState.reactions,
+						food: [reaction] + 1,
+					},
+				}));
 			}
 		});
+		console.log(this.state.reactions);
 	};
 
 	// after the updateReactions function, the values should be update to

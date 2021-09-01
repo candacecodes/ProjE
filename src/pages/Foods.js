@@ -102,7 +102,7 @@ export default class Foods extends Component {
 
 	// render food list after clicking food list
 	renderFoods = () => {
-		console.log(this.state.foodLog);
+		// console.log(this.state.foodLog);
 		return (
 			<>
 				<div>
@@ -233,25 +233,50 @@ export default class Foods extends Component {
 			foodLog: { ...prevState.foodLog, [t]: newLog },
 		}));
 
+		this.allergyAlgorithm(t);
 		console.log(this.state.foodLog);
-
-		// const newReactionForDate-1/2 = {
-		// take the date - 1/ 2
-		// find key for that date in foodLog
-		// take food values
-		// create reactionLog for that food in reactions state
-
-		// if there's no matching food object
-		// create a new food object and update state
-		// { food1 {
-		// [reaction1]: 0, [reaction2]: 0, etc. do it for all possible reactions }
-		// }
-		// can i do the hash within a hash?
-		// find the food object
-		// find the reaction key
-		// update its value by 1
-		// }
 	};
+
+	allergyAlgorithm = (t) => {
+		let date = new Date(t);
+		let twoDaysBefore = date - 1000 * 60 * 60 * 24 * 1;
+		//- 1,000 ms * 60 s * 60 mins * 24 hrs * (# of days beyond one to go back)
+		twoDaysBefore = new Date(twoDaysBefore);
+		twoDaysBefore = twoDaysBefore.toString();
+		this.formatDate(twoDaysBefore);
+	};
+
+	formatDate = (date) => {
+		var d = new Date(date),
+			month = "" + (d.getMonth() + 1),
+			day = "" + d.getDate(),
+			year = d.getFullYear();
+
+		if (month.length < 2) month = "0" + month;
+		if (day.length < 2) day = "0" + day;
+
+		console.log([year, month, day].join("-"));
+	};
+
+	// const newReactionForDate-1/2 = {
+	// take the date - 1/ 2
+	// find key for that date in foodLog
+	// take food values
+	// create reactionLog for that food in reactions state
+
+	// if there's no matching food object
+	// create a new food object and update state
+	// { food1 {
+	// [reaction1]: 0, [reaction2]: 0, etc. do it for all possible reactions }
+	// }
+	// can i do the hash within a hash?
+	// find the food object
+	// find the reaction key
+	// update its value by 1
+	// }
+
+	// when rendering which foods are triggers
+	// go through foods, and find values that are highest
 
 	//handle date change
 	handleDateChange = (e) => {

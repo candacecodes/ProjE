@@ -235,7 +235,12 @@ export default class Foods extends Component {
 
 		console.log(this.state.foodLog);
 
-		// const newReaction = {
+		// const newReactionForDate-1/2 = {
+		// take the date - 1/ 2
+		// find key for that date in foodLog
+		// take food values
+		// create reactionLog for that food in reactions state
+
 		// if there's no matching food object
 		// create a new food object and update state
 		// { food1 {

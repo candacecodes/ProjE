@@ -281,7 +281,7 @@ export default class Foods extends Component {
 			console.log(food, reaction);
 			if (!this.state.reactions[food]) {
 				// create a new food object { [reaction] = 1 }
-				let newReaction = { food: { reaction: 1 } };
+				let newReaction = { [food]: { [reaction]: 1 } };
 				console.log("reaction", newReaction);
 				// then set state
 				// this.setState((prevState) => ({

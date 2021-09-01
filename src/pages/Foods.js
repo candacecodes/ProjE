@@ -27,6 +27,9 @@ export default class Foods extends Component {
 
 		// creating an object for matched logs
 		logs: null,
+
+		// state for keeping track of reactions
+		reactions: {},
 	};
 
 	// handle submit for food list
@@ -231,6 +234,18 @@ export default class Foods extends Component {
 		}));
 
 		console.log(this.state.foodLog);
+
+		// const newReaction = {
+		// if there's no matching food object
+		// create a new food object and update state
+		// { food1 {
+		// [reaction1]: 0, [reaction2]: 0, etc. do it for all possible reactions }
+		// }
+		// can i do the hash within a hash?
+		// find the food object
+		// find the reaction key
+		// update its value by 1
+		// }
 	};
 
 	//handle date change

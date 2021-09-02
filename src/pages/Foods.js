@@ -214,7 +214,7 @@ export default class Foods extends Component {
 
 	//submit food log
 	submitFoodLog = () => {
-		console.log("submit food log");
+		// console.log("submit food log");
 		const date = this.state.date;
 		const meal = this.state.meal;
 		const foodsSelectedSubmission = this.state.foodsSelected;
@@ -234,7 +234,7 @@ export default class Foods extends Component {
 		}));
 
 		this.allergyAlgorithm(t);
-		console.log(this.state.foodLog);
+		// console.log(this.state.foodLog);
 	};
 
 	allergyAlgorithm = (t) => {
@@ -264,12 +264,12 @@ export default class Foods extends Component {
 
 	// take food values
 	findMatchingFoodLog = (date) => {
-		console.log(date); // date that is two days before logged input
+		// console.log(date); // date that is two days before logged input
 		if (this.state.foodLog[date]) {
 			// returns food values from matching date
 			let foods = this.state.foodLog[date].foodSelectedKey;
 			let reaction = this.state.foodLog[date].reactionKey;
-			console.log(foods);
+			// console.log(foods);
 			this.updateReactions(foods, reaction);
 		} else {
 			console.log("no match");
@@ -277,27 +277,18 @@ export default class Foods extends Component {
 	};
 
 	updateReactions = (foods, reaction) => {
-		foods.forEach((food) => {
-			console.log(food, reaction);
-			if (!this.state.reactions["food"]) {
-				console.log("first part");
-				// create a new food object { [reaction] = 1 }
-				let newReaction = { [food]: { [reaction]: 1 } };
-				console.log("reaction", newReaction);
-				this.setState((prevState) => ({
-					reactions: { ...prevState.reactions, ...newReaction },
-				}));
-			} else {
-				// [food][reaction] : += 1
-				console.log("second part");
-				this.setState((prevState) => ({
-					reactions: {
-						...(prevState.reactions[food][reaction] += 1),
-					},
-				}));
-			}
+		foods.forEach((updatedFood) => {
+			// if updatedFood is not in this.state.reactions
+			// create new object to put in reactions object
+			// in reactions > { updatedFood: { reaction : 1 } }
+			// if updatedFood is in this.state.reactions
+			// check to see that reaction is in this.state.reactions[updatedFoods]
+			// if not :
+			// create { reaction : 1 }
+			// add reaction to this.state.reactions[updatedFood]
+			// if reaction is in updatedFoods object already: { updatedFood: { reaction }}
+			// increment by one
 		});
-		console.log(this.state.reactions);
 	};
 
 	// after the updateReactions function, the values should be update to
@@ -307,7 +298,7 @@ export default class Foods extends Component {
 
 	//handle date change
 	handleDateChange = (e) => {
-		console.log("handle date change");
+		// console.log("handle date change");
 		const updatedDate = e.target.value;
 		this.setState({ date: updatedDate });
 	};

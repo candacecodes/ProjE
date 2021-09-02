@@ -278,18 +278,35 @@ export default class Foods extends Component {
 
 	updateReactions = (foods, reaction) => {
 		foods.forEach((updatedFood) => {
-			// if updatedFood is not in this.state.reactions
-			// create new object to put in reactions object
-			// in reactions > { updatedFood: { reaction : 1 } }
-			// if updatedFood is in this.state.reactions
-			// check to see that reaction is in this.state.reactions[updatedFoods]
-			// if not :
-			// create { reaction : 1 }
-			// add reaction to this.state.reactions[updatedFood]
-			// if reaction is in updatedFoods object already: { updatedFood: { reaction }}
-			// increment by one
+			// 1 if updatedFood is not in this.state.reactions
+			if (this.state.reactions.updatedFood) {
+				console.log(updatedFood, "in reactions");
+			} else {
+				console.log(updatedFood, "not in reactions");
+			}
 		});
 	};
+	// 			let newReaction = { [updatedFood]: { [reaction]: 1 } };
+	// 			this.setState((prevState) => ({
+	// 				reactions: { ...prevState.reactions, ...newReaction },
+	// 			}));
+
+	// 		}
+
+	// 			this.setState((prevState) => ({
+	// 				reactions: { ...prevState.reactions, ...newReaction },
+	// 			}));
+	// 		} else {
+	// 			// [updatedFood][reaction] : += 1
+
+	// 			let value = this.state.reactions[updatedFood][reaction] + 1;
+	// 			let newReaction = { [updatedFood]: { [reaction]: value } };
+	// 			this.setState((prevState) => ({
+	// 				reactions: { ...prevState.reactions[updatedFood], ...newReaction },
+	// 			}));
+	// 		}
+	// 	});
+	// };
 
 	// after the updateReactions function, the values should be update to
 	// { food: {reaction1 : 1}, { reaction2 : 2 }, { reaction3 : 3 }, etc }

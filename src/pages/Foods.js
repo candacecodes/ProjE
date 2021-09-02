@@ -279,19 +279,20 @@ export default class Foods extends Component {
 	updateReactions = (foods, reaction) => {
 		foods.forEach((food) => {
 			console.log(food, reaction);
-			if (!this.state.reactions[food]) {
+			if (!this.state.reactions["food"]) {
+				console.log("first part");
 				// create a new food object { [reaction] = 1 }
 				let newReaction = { [food]: { [reaction]: 1 } };
 				console.log("reaction", newReaction);
 				this.setState((prevState) => ({
-					reactions: { ...prevState.reactions, newReaction },
+					reactions: { ...prevState.reactions, ...newReaction },
 				}));
 			} else {
 				// [food][reaction] : += 1
+				console.log("second part");
 				this.setState((prevState) => ({
 					reactions: {
-						...prevState.reactions,
-						food: [reaction] + 1,
+						...(prevState.reactions[food][reaction] += 1),
 					},
 				}));
 			}

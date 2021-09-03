@@ -278,35 +278,43 @@ export default class Foods extends Component {
 
 	updateReactions = (foods, reaction) => {
 		foods.forEach((updatedFood) => {
-			// 1 if updatedFood is not in this.state.reactions
-			if (this.state.reactions.updatedFood) {
-				console.log(updatedFood, "in reactions");
-			} else {
+			// need to check if updatedFood[reactions] is not in this.state.reactions
+			if (!this.state.reactions.hasOwnProperty(updatedFood)) {
 				console.log(updatedFood, "not in reactions");
+				// create an object, [ food ] : { [ reaction ] : 1 }
+				let newFoodReaction = { [updatedFood]: { [reaction]: 1 } };
+				// set state for for reactions
+				this.setState((prevState) => ({
+					reactions: { ...prevState.reactions, ...newFoodReaction },
+				}));
+			} else {
+				console.log(updatedFood, "food in reactions state");
+				let nestedFoodKey = { ...this.state.reactions[updatedFood] };
+				// let nestedReactionKey =
+				// create an if / else statement searching through to find a matching reaction
+				if (nestedFoodKey.hasOwnProperty(reaction)) {
+					console.log("nested food key has reaction key");
+					// find the reaction key and increment it by 1
+				} else {
+					console.log("nested food doesnt have reaction key");
+					// create a new reaction key and set it to 1
+				}
+				let value = parseInt(this.state.reactions[updatedFood][reaction] + 1);
+				console.log(nestedFoodKey, value);
+				this.setState((prevState) => ({
+					reactions: {
+						...prevState.reactions,
+						[updatedFood]: {
+							...prevState.reactions.updatedFood,
+							[reaction]: value,
+						},
+					},
+				}));
+
+				console.log(this.state.reactions);
 			}
 		});
 	};
-	// 			let newReaction = { [updatedFood]: { [reaction]: 1 } };
-	// 			this.setState((prevState) => ({
-	// 				reactions: { ...prevState.reactions, ...newReaction },
-	// 			}));
-
-	// 		}
-
-	// 			this.setState((prevState) => ({
-	// 				reactions: { ...prevState.reactions, ...newReaction },
-	// 			}));
-	// 		} else {
-	// 			// [updatedFood][reaction] : += 1
-
-	// 			let value = this.state.reactions[updatedFood][reaction] + 1;
-	// 			let newReaction = { [updatedFood]: { [reaction]: value } };
-	// 			this.setState((prevState) => ({
-	// 				reactions: { ...prevState.reactions[updatedFood], ...newReaction },
-	// 			}));
-	// 		}
-	// 	});
-	// };
 
 	// after the updateReactions function, the values should be update to
 	// { food: {reaction1 : 1}, { reaction2 : 2 }, { reaction3 : 3 }, etc }

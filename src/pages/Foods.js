@@ -325,18 +325,25 @@ export default class Foods extends Component {
 				let nestedFoodKey = { ...this.state.reactions[updatedFood] };
 				// checks that particular reaction is in the updatedFood object
 				if (nestedFoodKey.hasOwnProperty(reaction)) {
+					// BUG: ENDS UP OVERRIDING PREVIOUS VALUES
+					console.log("part 1 of updatedReactions");
 					let value = parseInt(this.state.reactions[updatedFood][reaction] + 1);
 					console.log(nestedFoodKey, value);
+					let updatedNestedFoodKey = { [reaction]: value };
+
 					this.setState((prevState) => ({
 						reactions: {
 							...prevState.reactions,
 							[updatedFood]: {
 								...prevState.reactions.updatedFood,
-								[reaction]: value,
+								...updatedNestedFoodKey,
 							},
 						},
 					}));
+					console.log(this.state.reactions);
 				} else {
+					// THIS PART WORKS
+					console.log("part 2 of function");
 					// has the food key but not the reaction key
 					console.log("no reaction key");
 					// create an object with that reaction key and set it to one

@@ -276,67 +276,29 @@ export default class Foods extends Component {
 		}
 	};
 
-	// updateReactions = (foods, reaction) => {
-	// 	foods.forEach((updatedFood) => {
-	// 		// need to check if updatedFood[reactions] is not in this.state.reactions
-	// 		if (!this.state.reactions.hasOwnProperty(updatedFood)) {
-	// 			console.log(updatedFood, "not in reactions");
-	// 			// create an object, [ food ] : { [ reaction ] : 1 }
-	// 			let newFoodReaction = { [updatedFood]: { [reaction]: 1 } };
-	// 			// set state for for reactions
-	// 			this.setState((prevState) => ({
-	// 				reactions: { ...prevState.reactions, ...newFoodReaction },
-	// 			}));
-	// 		} else {
-	// 			console.log(updatedFood, "food in reactions state");
-	// 			let nestedFoodKey = { ...this.state.reactions[updatedFood] };
-	// 			// let nestedReactionKey =
-	// 			// create an if / else statement searching through to find a matching reaction
-	// 			if (nestedFoodKey.hasOwnProperty(reaction)) {
-	// 				// console.log("nested food key has reaction key");
-	// 				// // find the reaction key and increment it by 1
-	// 				// let nestedReactionKey = nestedFoodKey[reaction];
-	// 				// console.log(reaction, nestedReactionKey);
-	// 				let value = parseInt(this.state.reactions[updatedFood][reaction] + 1);
-	// 				console.log(nestedFoodKey, value);
-	// 				this.setState((prevState) => ({
-	// 					reactions: {
-	// 						...prevState.reactions,
-	// 						[updatedFood]: {
-	// 							...prevState.reactions.updatedFood,
-	// 							[reaction]: value,
-	// 						},
-	// 					},
-	// 				}));
-	// 			} else {
-	// 				console.log("nested food doesnt have reaction key");
-	// 				// create a new reaction key and set it to 1
-	// 			}
-
-	// 			console.log(this.state.reactions);
-	// 		}
-	// 	});
-	// };
-
 	updateReactions = (foods, reaction) => {
 		foods.forEach((updatedFood) => {
 			// this if statement checks if the reaction has the updatedFood
 			if (this.state.reactions.hasOwnProperty(updatedFood)) {
 				let nestedFoodKey = { ...this.state.reactions[updatedFood] };
 				// checks that particular reaction is in the updatedFood object
+				// TO DO:
 				if (nestedFoodKey.hasOwnProperty(reaction)) {
 					console.log("part 1 of updatedReactions");
 					let value = parseInt(this.state.reactions[updatedFood][reaction] + 1);
 					console.log(nestedFoodKey, value);
 					let updatedNestedFoodKey = { [reaction]: value };
-					let updatedFoodValues = {};
-
+					let findFood = this.state.reactions[updatedFood];
+					let updatedNestedFoodValues = {
+						...findFood,
+						...updatedNestedFoodKey,
+					};
 					this.setState((prevState) => ({
 						reactions: {
 							...prevState.reactions,
 							[updatedFood]: {
 								...prevState.reactions.updatedFood,
-								...updatedNestedFoodKey,
+								...updatedNestedFoodValues, // REPLACE WITH X
 							},
 						},
 					}));

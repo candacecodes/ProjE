@@ -466,7 +466,7 @@ export default class Foods extends Component {
 	render() {
 		return (
 			<>
-				<h3>Welcome</h3>
+				<h3>Food Sensitivity Analytics</h3>
 				<div id="outerdiv">
 					<div class="card" id="leftbox">
 						<form onSubmit={(e) => this.handleSubmit(e)}>

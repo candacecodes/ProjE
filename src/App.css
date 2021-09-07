@@ -78,11 +78,18 @@ body {
 	/* font-family: "Arial"; */
 	/* font-weight: bold; */
 	font-size: 0.9em;
+	color: rgb(35, 51, 51);
 }
 
 h3 {
 	text-align: center;
 	font-size: 2em;
+	/* font-style: italic; */
+	margin: 2px;
+	padding: 2px;
+	/* margin-left: auto;
+	margin-right: auto; */
+	color: rgb(25, 29, 29);
 }
 
 .select-bar {
@@ -123,4 +130,11 @@ h3 {
 #big-button {
 	width: 50%;
 	font-weight: bold;
+	/* font-style: italic; */
+}
+
+::-webkit-datetime-edit {
+	padding: 0.3em;
+	border-color: white;
+	border-radius: 5px;
 }

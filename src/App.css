@@ -6,7 +6,7 @@
 	/* border: 1px solid black;
 	padding: 10px; */
 	text-align: center;
-	width: 30%;
+	width: 26%;
 	margin: 10px;
 	border-radius: 25px;
 	border: 2px solid white;
@@ -22,7 +22,7 @@
 #leftbox {
 	float: left;
 	background: lightsteelblue;
-	width: 25%;
+	width: 27.3%;
 	height: 450px;
 	background: rgb(100, 149, 237);
 	background: linear-gradient(
@@ -34,7 +34,7 @@
 #middlebox {
 	float: left;
 	background: lightsteelblue;
-	width: 25%;
+	width: 27.3%;
 	height: 450px;
 	background: rgb(97, 156, 193);
 	background: linear-gradient(
@@ -46,7 +46,7 @@
 #rightbox {
 	float: left;
 	background: lightsteelblue;
-	width: 25%;
+	width: 27.3%;
 	height: 450px;
 	background: rgb(218, 112, 214);
 	background: linear-gradient(
@@ -78,6 +78,11 @@ body {
 	/* font-family: "Arial"; */
 	/* font-weight: bold; */
 	font-size: 0.9em;
+}
+
+h3 {
+	text-align: center;
+	font-size: 2em;
 }
 
 .select-bar {

@@ -127,10 +127,11 @@ export default class Foods extends Component {
 		return (
 			<>
 				<div>
-					<h3>Log Meal</h3>
+					{/* <h3>Log Meal</h3> */}
 					<br />
 					Date <br />
 					<input
+						// class="calendar"
 						onChange={(value) => this.handleDateChange(value)}
 						type="date"
 						min="2020-01-01"
@@ -140,6 +141,8 @@ export default class Foods extends Component {
 					<br />
 					Select Meal <br />
 					<select
+						class="select-bar"
+						id="select-meal"
 						defaultValue={this.state.meal}
 						onChange={(value) => this.handleMealChange(value)}
 					>
@@ -170,6 +173,7 @@ export default class Foods extends Component {
 					Current Skin Condition
 					<br />
 					<select
+						class="select-bar"
 						defaultValue={this.state.reaction}
 						onChange={(value) => this.handleReactionChange(value)}
 					>
@@ -467,6 +471,7 @@ export default class Foods extends Component {
 								Add Food to Track : <br />
 								Common Eczema Triggers:
 								<select
+									class="select-bar"
 									name="input"
 									value={this.state.input}
 									onChange={this.handleChange}
@@ -488,6 +493,7 @@ export default class Foods extends Component {
 								<br />
 								Include Custom Food:
 								<input
+									id="custom-food-input-button"
 									type="text"
 									name="input"
 									value={this.state.input}
@@ -507,7 +513,11 @@ export default class Foods extends Component {
 					</div>
 
 					<div class="card" id="middlebox">
-						<button class="button" onClick={this.foodLogToggle}>
+						<button
+							class="button"
+							id="log-a-meal-button"
+							onClick={this.foodLogToggle}
+						>
 							Log a Meal
 						</button>
 						{this.state.foodLog ? this.foodLog() : null}

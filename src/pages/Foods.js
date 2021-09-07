@@ -133,7 +133,7 @@ export default class Foods extends Component {
 					<br />
 					Date <br />
 					<input
-						// class="calendar"
+						class="datetime"
 						onChange={(value) => this.handleDateChange(value)}
 						type="date"
 						min="2020-01-01"
@@ -526,7 +526,7 @@ export default class Foods extends Component {
 
 					<div class="card" id="middlebox">
 						<button class="button" id="big-button" onClick={this.foodLogToggle}>
-							Log a Meal
+							Create an Entry
 						</button>
 						{this.state.foodLog ? this.foodLog() : null}
 

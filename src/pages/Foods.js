@@ -304,7 +304,6 @@ export default class Foods extends Component {
 					}));
 					console.log(this.state.reactions);
 				} else {
-					// BUG: ENDS UP OVERRIDING PREVIOUS VALUES
 					console.log("part 2A of function");
 					// has the food key but not the reaction key
 					console.log("no reaction key");

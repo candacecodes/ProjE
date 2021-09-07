@@ -113,7 +113,9 @@ export default class Foods extends Component {
 							<div>
 								{item}
 								<br />
-								<button onClick={() => this.deleteFood(item)}>Delete</button>
+								<button class="button" onClick={() => this.deleteFood(item)}>
+									Delete
+								</button>
 							</div>
 						);
 					})}
@@ -468,10 +470,15 @@ export default class Foods extends Component {
 					<div class="card" id="leftbox">
 						<form onSubmit={(e) => this.handleSubmit(e)}>
 							<label>
-								Add Food to Track : <br />
+								<button class="button" id="big-button">
+									Add Food to Track
+								</button>{" "}
+								<br />
+								<br />
 								Common Eczema Triggers:
 								<select
 									class="select-bar"
+									id="food-bar"
 									name="input"
 									value={this.state.input}
 									onChange={this.handleChange}
@@ -493,7 +500,7 @@ export default class Foods extends Component {
 								<br />
 								Include Custom Food:
 								<input
-									id="custom-food-input-button"
+									id="custom-food-input"
 									type="text"
 									name="input"
 									value={this.state.input}
@@ -505,7 +512,11 @@ export default class Foods extends Component {
 							<br />
 							<br />
 						</form>
-						<button class="button" onClick={this.displayFoodsToggle}>
+						<button
+							class="button"
+							id="big-button"
+							onClick={this.displayFoodsToggle}
+						>
 							See Food List
 						</button>
 						<br />
@@ -513,11 +524,7 @@ export default class Foods extends Component {
 					</div>
 
 					<div class="card" id="middlebox">
-						<button
-							class="button"
-							id="log-a-meal-button"
-							onClick={this.foodLogToggle}
-						>
+						<button class="button" id="big-button" onClick={this.foodLogToggle}>
 							Log a Meal
 						</button>
 						{this.state.foodLog ? this.foodLog() : null}
@@ -526,7 +533,11 @@ export default class Foods extends Component {
 					</div>
 					<div class="card" id="rightbox">
 						{/* toggle for see foods  */}
-						<button class="button" onClick={this.displayFoodLogToggle}>
+						<button
+							class="button"
+							id="big-button"
+							onClick={this.displayFoodLogToggle}
+						>
 							See Food Logs
 						</button>
 						<div>{this.state.displayLogs ? this.displayFoodLogs() : null}</div>

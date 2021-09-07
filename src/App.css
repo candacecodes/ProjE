@@ -74,20 +74,10 @@ body {
 	border-radius: 5px;
 	border: none;
 	padding: 5px;
-	margin: 2px;
+	margin: 3px;
 	/* font-family: "Arial"; */
 	/* font-weight: bold; */
 	font-size: 0.9em;
-}
-
-.h3 {
-	/* display: block; */
-	font-size: 0.7em;
-	/* margin-top: 1em; */
-	/* margin-bottom: 1em;
-	margin-left: 0;
-	margin-right: 0; */
-	font-weight: bold;
 }
 
 .select-bar {
@@ -112,11 +102,20 @@ body {
 	border-color: white;
 } */
 
-#id {
+#custom-food-input {
 	border-radius: 5px;
 	margin: 2px;
 	font-size: 0.9em;
-	width: 100%;
-	padding: 2px;
+	width: 80%;
+	padding: 3px;
 	border-color: white;
+}
+
+#food-bar {
+	width: 80%;
+}
+
+#big-button {
+	width: 50%;
+	font-weight: bold;
 }

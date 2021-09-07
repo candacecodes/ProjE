@@ -3,10 +3,14 @@
 }
 
 .card {
-	border: 1px solid black;
-	padding: 10px;
+	/* border: 1px solid black;
+	padding: 10px; */
 	text-align: center;
 	width: 30%;
+
+	border-radius: 25px;
+	border: 2px solid white;
+	padding: 20px;
 }
 
 #leftbox {

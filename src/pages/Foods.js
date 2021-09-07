@@ -501,13 +501,13 @@ export default class Foods extends Component {
 						{this.state.displayFoods ? this.renderFoods() : null}
 					</div>
 
-					<div class="card" id="leftbox">
+					<div class="card" id="middlebox">
 						<button onClick={this.foodLogToggle}>Log a Meal</button>
 						{this.state.foodLog ? this.foodLog() : null}
 
 						<br />
 					</div>
-					<div class="card" id="leftbox">
+					<div class="card" id="rightbox">
 						{/* toggle for see foods  */}
 						<button onClick={this.displayFoodLogToggle}>See Food Logs</button>
 						<div>{this.state.displayLogs ? this.displayFoodLogs() : null}</div>

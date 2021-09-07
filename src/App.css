@@ -33,15 +33,27 @@
 }
 #middlebox {
 	float: left;
-	background: Green;
-	width: 50%;
-	height: 280px;
+	background: lightsteelblue;
+	width: 25%;
+	height: 450px;
+	background: rgb(97, 156, 193);
+	background: linear-gradient(
+		45deg,
+		rgba(97, 156, 193, 1) 0%,
+		rgba(180, 234, 247, 1) 100%
+	);
 }
 #rightbox {
-	float: right;
-	background: blue;
+	float: left;
+	background: lightsteelblue;
 	width: 25%;
-	height: 280px;
+	height: 450px;
+	background: rgb(218, 112, 214);
+	background: linear-gradient(
+		45deg,
+		rgba(218, 112, 214, 1) 0%,
+		rgba(216, 191, 216, 1) 100%
+	);
 }
 
 #outerdiv {

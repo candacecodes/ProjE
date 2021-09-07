@@ -533,9 +533,9 @@ export default class Foods extends Component {
 						<br />
 
 						{/* toggle to filter by reaction  */}
-						<button onClick={this.displayLogByReactionToggle}>
+						{/* <button onClick={this.displayLogByReactionToggle}>
 							Filter by Reaction
-						</button>
+						</button> */}
 
 						{/* toggle to filter by date */}
 						{/* <button onClick={this.displayLogByDateToggle}>

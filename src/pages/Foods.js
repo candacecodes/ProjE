@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
+import "../App.css";
 
 export default class Foods extends Component {
 	state = {
@@ -186,7 +188,9 @@ export default class Foods extends Component {
 						</option>
 					</select>
 					<br />
-					<button onClick={() => this.submitFoodLog()}>Submit</button>
+					<button class="button" onClick={() => this.submitFoodLog()}>
+						Submit
+					</button>
 				</div>
 			</>
 		);
@@ -461,7 +465,6 @@ export default class Foods extends Component {
 						<form onSubmit={(e) => this.handleSubmit(e)}>
 							<label>
 								Add Food to Track : <br />
-								<br />
 								Common Eczema Triggers:
 								<select
 									name="input"
@@ -480,7 +483,7 @@ export default class Foods extends Component {
 									<option value="Shellfish">Shellfish</option>
 									<option value="Tomatoes">Tomatoes</option>
 								</select>
-								<input type="submit" value="Submit" />
+								<input type="submit" value="Submit" class="button" />
 								<br />
 								<br />
 								Include Custom Food:
@@ -492,37 +495,47 @@ export default class Foods extends Component {
 								/>
 							</label>
 							<br />
-							<input type="submit" value="Submit" />
+							<input type="submit" value="Submit" class="button" />
 							<br />
 							<br />
 						</form>
-						<button onClick={this.displayFoodsToggle}>See Food List</button>
+						<button class="button" onClick={this.displayFoodsToggle}>
+							See Food List
+						</button>
 						<br />
 						{this.state.displayFoods ? this.renderFoods() : null}
 					</div>
 
 					<div class="card" id="middlebox">
-						<button onClick={this.foodLogToggle}>Log a Meal</button>
+						<button class="button" onClick={this.foodLogToggle}>
+							Log a Meal
+						</button>
 						{this.state.foodLog ? this.foodLog() : null}
 
 						<br />
 					</div>
 					<div class="card" id="rightbox">
 						{/* toggle for see foods  */}
-						<button onClick={this.displayFoodLogToggle}>See Food Logs</button>
+						<button class="button" onClick={this.displayFoodLogToggle}>
+							See Food Logs
+						</button>
 						<div>{this.state.displayLogs ? this.displayFoodLogs() : null}</div>
 						<br />
 
 						{/* toggle to filter by food  */}
 						<div>
-							<button onClick={this.displayLogByFoodToggle}>
+							<button class="button" onClick={this.displayLogByFoodToggle}>
 								Filter by Food
 							</button>
 						</div>
-						<button onClick={this.resetFoodFilter}>Reset Filter</button>
+						<button class="button" onClick={this.resetFoodFilter}>
+							Reset Filter
+						</button>
 						<br />
 						<div>
-							<button onClick={this.findMatches}>Find Matches</button>
+							<button class="button" onClick={this.findMatches}>
+								Find Matches
+							</button>
 							<br />
 							{this.state.logs}
 						</div>

@@ -6,7 +6,7 @@ import FoodLogs from "./pages/FoodLogs";
 import Menu from "./pages/Menu";
 import ReactionLogs from "./pages/ReactionLogs";
 import Report from "./pages/Report";
-
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 const Header = () => (

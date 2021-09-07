@@ -138,3 +138,8 @@ h3 {
 	border-color: white;
 	border-radius: 5px;
 }
+
+.button:hover {
+	background-color: #a5b0e0;
+	color: white;
+}

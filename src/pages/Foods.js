@@ -467,7 +467,7 @@ export default class Foods extends Component {
 		return (
 			<>
 				<h3>Food Sensitivity Analytics</h3>
-				<div id="outerdiv">
+				<div class="outerdiv">
 					<div class="card" id="leftbox">
 						<form onSubmit={(e) => this.handleSubmit(e)}>
 							<label>
@@ -578,6 +578,9 @@ export default class Foods extends Component {
 						<br /> */}
 						{/* <div>{this.state.displayLogByDateToggle ? this.filterByDate() : null}</div> */}
 					</div>
+				</div>
+				<div class="outerdiv" id="bottom-div">
+					Bottom Div
 				</div>
 			</>
 		);

@@ -588,10 +588,15 @@ export default class Foods extends Component {
 					<div>
 						<div id="bottom-div">
 							<b>Food Sensitivity Analysis</b>
-							<br />
-							High Sensitivity (Avoid) : <br />
-							Moderate Sensitivity: <br />
-							Low Sensitivity: <br />
+							<div id="float-child-left">
+								<h4>High Sensitivity</h4>
+							</div>
+							<div id="float-child-right">
+								<h4>Moderate Sensitivity</h4>
+							</div>
+							<div>
+								<h4>Low Sensitivity</h4>
+							</div>
 						</div>
 					</div>
 					{/* <div id="bottom-right-div">Next to Bottom Div </div> */}

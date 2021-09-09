@@ -4,13 +4,16 @@
 
 .outerdiv {
 	position: relative;
+	text-align: center;
+	margin-left: 120px; /* Same as the width of the sidebar */
+	padding: 0px 25px;
 }
 
 .card {
 	/* border: 1px solid black;
 	padding: 10px; */
 	text-align: center;
-	width: 26%;
+	width: 20%;
 	margin: 10px;
 	border-radius: 25px;
 	border: 2px solid white;
@@ -26,8 +29,8 @@
 #leftbox {
 	float: left;
 	background: lightsteelblue;
-	width: 27.3%;
-	height: 450px;
+	width: 24%;
+	height: 400px;
 	background: rgb(100, 149, 237);
 	background: linear-gradient(
 		45deg,
@@ -38,8 +41,8 @@
 #middlebox {
 	float: left;
 	background: lightsteelblue;
-	width: 27.3%;
-	height: 450px;
+	width: 24%;
+	height: 400px;
 	background: rgb(97, 156, 193);
 	background: linear-gradient(
 		45deg,
@@ -50,8 +53,8 @@
 #rightbox {
 	float: left;
 	background: lightsteelblue;
-	width: 27.3%;
-	height: 450px;
+	width: 24%;
+	height: 400px;
 	background: rgb(218, 112, 214);
 	background: linear-gradient(
 		45deg,
@@ -91,7 +94,7 @@ h3 {
 	font-size: 2em;
 	/* font-style: italic; */
 	margin: 2px;
-	padding: 2px;
+	padding: 20px;
 	/* margin-left: auto;
 	margin-right: auto; */
 	color: rgb(25, 29, 29);
@@ -148,13 +151,63 @@ h3 {
 }
 
 #bottom-div {
-	background-color: darkslategrey;
+	background-color: rgb(20, 20, 20);
 	/* position: absolute;*/
 	display: grid;
-	width: 75%;
-	height: 350px;
-	margin: 10px;
+	width: 70%;
+	height: 250px;
+	margin: 20px;
 	border-radius: 25px;
 	border: 2px solid white;
 	padding: 20px;
+	/* place-items: center; */
+	align-content: left;
+	margin: auto;
+	color: white;
+}
+
+h4 {
+	text-align: center;
+}
+
+.sidenav {
+	height: 100%; /* Full-height: remove this if you want "auto" height */
+	width: 120px; /* Set the width of the sidebar */
+	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	background-color: rgb(70, 70, 70); /* Black */
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 15px;
+	color: #adadad;
+	display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+	color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+	margin-left: 120px; /* Same as the width of the sidebar */
+	padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+	.sidenav a {
+		font-size: 15px;
+	}
 }

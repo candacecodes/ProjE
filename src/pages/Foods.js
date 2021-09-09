@@ -467,6 +467,12 @@ export default class Foods extends Component {
 		return (
 			<>
 				<h3>Food Sensitivity Analytics</h3>
+				<div class="sidenav">
+					<a href="#">About</a>
+					<a href="#">Services</a>
+					<a href="#">Clients</a>
+					<a href="#">Contact</a>
+				</div>
 				<div class="outerdiv">
 					<div class="card" id="leftbox">
 						<form onSubmit={(e) => this.handleSubmit(e)}>
@@ -578,9 +584,17 @@ export default class Foods extends Component {
 						<br /> */}
 						{/* <div>{this.state.displayLogByDateToggle ? this.filterByDate() : null}</div> */}
 					</div>
-				</div>
-				<div class="outerdiv" id="bottom-div">
-					Bottom Div
+
+					<div>
+						<div id="bottom-div">
+							<b>Food Sensitivity Analysis</b>
+							<br />
+							High Sensitivity (Avoid) : <br />
+							Moderate Sensitivity: <br />
+							Low Sensitivity: <br />
+						</div>
+					</div>
+					<div>Next to Bottom Div </div>
 				</div>
 			</>
 		);

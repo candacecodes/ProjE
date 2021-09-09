@@ -151,10 +151,34 @@ h3 {
 }
 
 #bottom-div {
-	background-color: rgb(20, 20, 20);
-	/* position: absolute;*/
+	background: rgb(173, 166, 166);
+	background: linear-gradient(
+		0deg,
+		rgba(173, 166, 166, 1) 0%,
+		rgba(203, 194, 194, 1) 100%
+	);
 	display: grid;
-	width: 70%;
+	width: 60%;
+	height: 250px;
+	margin: 20px;
+	border-radius: 25px;
+	border: 2px solid white;
+	padding: 20px;
+	/* place-items: center; */
+	align-content: left;
+	margin: auto;
+	color: white;
+}
+
+#bottom-right-div {
+	background: rgb(180, 171, 171);
+	background: linear-gradient(
+		0deg,
+		rgba(180, 171, 171, 1) 0%,
+		rgba(219, 209, 209, 1) 100%
+	);
+	display: grid;
+	width: 30%;
 	height: 250px;
 	margin: 20px;
 	border-radius: 25px;

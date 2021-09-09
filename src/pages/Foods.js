@@ -594,7 +594,7 @@ export default class Foods extends Component {
 							Low Sensitivity: <br />
 						</div>
 					</div>
-					<div>Next to Bottom Div </div>
+					{/* <div id="bottom-right-div">Next to Bottom Div </div> */}
 				</div>
 			</>
 		);

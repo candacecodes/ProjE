@@ -587,7 +587,7 @@ export default class Foods extends Component {
 					<div>
 						<div id="bottom-div">
 							<b>Food Sensitivity Analysis</b>
-							<div>High Potential Allergens</div>
+							<div>Significant Potential Allergens</div>
 							<div>Moderate Potential Allergens</div>
 							<div>Low Potential Allergens</div>
 						</div>

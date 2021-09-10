@@ -249,11 +249,11 @@ export default class Foods extends Component {
 
 	allergyAlgorithm = (t) => {
 		let date = new Date(t);
-		let oneDaysBefore = date - 1;
-		oneDaysBefore = new Date(oneDaysBefore);
-		oneDaysBefore = oneDaysBefore.toString();
-		this.formatDate(oneDaysBefore);
-		console.log(oneDaysBefore);
+		let oneDayBefore = date - 1;
+		oneDayBefore = new Date(oneDayBefore);
+		oneDayBefore = oneDayBefore.toString();
+		this.formatDate(oneDayBefore);
+		console.log(oneDayBefore);
 	};
 
 	formatDate = (date) => {
@@ -267,9 +267,9 @@ export default class Foods extends Component {
 		if (month.length < 2) month = "0" + month;
 		if (day.length < 2) day = "0" + day;
 
-		let twoDaysBefore = [year, month, day].join("-");
+		let oneDayBefore = [year, month, day].join("-");
 		// find key for that date in foodLog
-		this.findMatchingFoodLog(twoDaysBefore);
+		this.findMatchingFoodLog(oneDayBefore);
 	};
 
 	// take food values

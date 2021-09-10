@@ -170,20 +170,6 @@ h3 {
 	color: white;
 }
 
-#float-child-left {
-	width: 23%;
-	float: left;
-	padding: 5px;
-	border: 2px solid red;
-}
-
-#float-child-right {
-	width: 23%;
-	float: right;
-	padding: 5px;
-	border: 2px solid red;
-}
-
 h4 {
 	text-align: center;
 }

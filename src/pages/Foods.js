@@ -249,11 +249,11 @@ export default class Foods extends Component {
 
 	allergyAlgorithm = (t) => {
 		let date = new Date(t);
-		let twoDaysBefore = date - 1000 * 60 * 60 * 24 * 1;
-		//- 1,000 ms * 60 s * 60 mins * 24 hrs * (# of days beyond one to go back)
-		twoDaysBefore = new Date(twoDaysBefore);
-		twoDaysBefore = twoDaysBefore.toString();
-		this.formatDate(twoDaysBefore);
+		let oneDaysBefore = date - 1;
+		oneDaysBefore = new Date(oneDaysBefore);
+		oneDaysBefore = oneDaysBefore.toString();
+		this.formatDate(oneDaysBefore);
+		console.log(oneDaysBefore);
 	};
 
 	formatDate = (date) => {
@@ -588,15 +588,9 @@ export default class Foods extends Component {
 					<div>
 						<div id="bottom-div">
 							<b>Food Sensitivity Analysis</b>
-							<div id="float-child-left">
-								<h4>High Sensitivity</h4>
-							</div>
-							<div id="float-child-right">
-								<h4>Moderate Sensitivity</h4>
-							</div>
-							<div>
-								<h4>Low Sensitivity</h4>
-							</div>
+							<div>High Potential Allergens</div>
+							<div>Moderate Potential Allergens</div>
+							<div>Low Potential Allergens</div>
 						</div>
 					</div>
 					{/* <div id="bottom-right-div">Next to Bottom Div </div> */}

@@ -369,7 +369,7 @@ export default class Foods extends Component {
 	_renderFoodLogs = (foodLog) => {
 		return Object.entries(foodLog).map(([key, value], i) => {
 			return (
-				<div>
+				<div id="individual-food-log-div">
 					{value.dateKey}
 					<br />
 					{value.mealKey}

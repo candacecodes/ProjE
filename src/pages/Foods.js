@@ -18,7 +18,7 @@ export default class Foods extends Component {
 		displayLogByReactionToggle: false,
 		// onChange handlers for state
 		date: "01-01-2021",
-		meal: "breakfast",
+		meal: "Breakfast",
 		foodsSelected: [],
 		reaction: "neutral",
 
@@ -148,10 +148,10 @@ export default class Foods extends Component {
 						defaultValue={this.state.meal}
 						onChange={(value) => this.handleMealChange(value)}
 					>
-						<option value="breakfast">Breakfast</option>
-						<option value="lunch">Lunch</option>
-						<option value="dinner">Dinner</option>
-						<option name="meal" value="snack">
+						<option value="Breakfast">Breakfast</option>
+						<option value="Lunch">Lunch</option>
+						<option value="Dinner">Dinner</option>
+						<option name="meal" value="Snack">
 							Snack
 						</option>
 					</select>
@@ -370,13 +370,13 @@ export default class Foods extends Component {
 		return Object.entries(foodLog).map(([key, value], i) => {
 			return (
 				<div id="individual-food-log-div">
-					{value.dateKey}
+					Date: {value.dateKey}
 					<br />
 					{value.mealKey}
 					<br />
-					{value.foodSelectedKey}
+					Foods: {value.foodSelectedKey}
 					<br />
-					{value.reactionKey}
+					Reaction: {value.reactionKey}
 					<br />
 				</div>
 			);

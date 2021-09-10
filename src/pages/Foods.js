@@ -253,7 +253,6 @@ export default class Foods extends Component {
 		oneDayBefore = new Date(oneDayBefore);
 		oneDayBefore = oneDayBefore.toString();
 		this.formatDate(oneDayBefore);
-		console.log(oneDayBefore);
 	};
 
 	formatDate = (date) => {

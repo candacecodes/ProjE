@@ -61,6 +61,10 @@
 		rgba(218, 112, 214, 1) 0%,
 		rgba(216, 191, 216, 1) 100%
 	);
+	/* adding scroll function  */
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 #outerdiv {

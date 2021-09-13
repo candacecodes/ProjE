@@ -32,6 +32,7 @@ export default class Foods extends Component {
 
 		// state for keeping track of reactions
 		reactions: {},
+		// reactions > food > [ reaction_type ] > int value
 	};
 
 	// handle submit for food list
@@ -462,6 +463,15 @@ export default class Foods extends Component {
 		);
 	};
 
+	renderHighest = () => {
+		let reactions = this.state.reactions;
+		let reactionkeys = Object.keys(reactions);
+		console.log(reactionkeys);
+		// for each rxn in reactionkeys:
+		// for each rxn in food
+		// return value from rxn that has highest keys, moderate keys, low keys
+	};
+
 	render() {
 		return (
 			<>
@@ -587,7 +597,11 @@ export default class Foods extends Component {
 					<div>
 						<div id="bottom-div">
 							<b>Food Sensitivity Analysis</b>
-							<div></div>
+							<div>
+								<button onClick={this.renderHighest}>Render Highest</button>{" "}
+								<br /> <button>Render Moderate</button> <br />{" "}
+								<button>Render Lowest</button>
+							</div>
 						</div>
 					</div>
 					{/* <div id="bottom-right-div">Next to Bottom Div </div> */}

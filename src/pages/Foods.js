@@ -465,8 +465,18 @@ export default class Foods extends Component {
 
 	renderHighest = () => {
 		let reactions = this.state.reactions;
-		let reactionkeys = Object.keys(reactions);
-		console.log(reactionkeys);
+		let foods = Object.keys(reactions);
+		console.log("food keys: ", foods);
+		{
+			foods.map((food) => {
+				let reaction = reactions[food];
+				console.log("reaction: ", reaction);
+				let responseKey = Object.keys(reaction);
+				responseKey.map((key) => {
+					console.log(food, reaction, "reaction key value", reaction[key]);
+				});
+			});
+		}
 		// for each rxn in reactionkeys:
 		// for each rxn in food
 		// return value from rxn that has highest keys, moderate keys, low keys

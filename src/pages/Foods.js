@@ -464,6 +464,9 @@ export default class Foods extends Component {
 	};
 
 	renderHighest = () => {
+		// THIS FUNCTION DISPLAYS
+		// FOOD, RXN DESCRIPTION, AND VALUES
+		// probably should rename this to render data
 		let reactions = this.state.reactions;
 		let foods = Object.keys(reactions);
 		console.log("food keys: ", foods);

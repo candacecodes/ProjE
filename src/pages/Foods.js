@@ -469,12 +469,36 @@ export default class Foods extends Component {
 		console.log("food keys: ", foods);
 		{
 			foods.map((food) => {
-				let reaction = reactions[food];
-				console.log("reaction: ", reaction);
-				let responseKey = Object.keys(reaction);
-				responseKey.map((key) => {
-					console.log(food, reaction, "reaction key value", reaction[key]);
+				let reactionDescriptions = reactions[food];
+				let reactionDescriptionKeys = Object.keys(reactionDescriptions);
+				console.log(
+					"reaction descriptions ",
+					reactionDescriptions,
+					"keys: ",
+					reactionDescriptionKeys
+				);
+				let responseKey = Object.keys(reactionDescriptions);
+				console.log("response keys: ", responseKey);
+
+				responseKey.map((singleDescription) => {
+					let value = reactionDescriptions[singleDescription];
+					console.log(
+						"food is ",
+						food,
+						"description is ",
+						singleDescription,
+						"value is",
+						value
+					);
 				});
+
+				// log each reaction description individually
+
+				// console.log('for food: ', food, 'reaction is: ', reaction, 'with a value of: ', value)
+
+				// for food: done
+				// reaction is: need to loop through each response key and return that
+				// with a value of: return the value from the response key
 			});
 		}
 		// for each rxn in reactionkeys:

@@ -16,6 +16,7 @@ export default class Foods extends Component {
 		displayLogByDateToggle: false,
 		displayLogByFoodToggle: false,
 		displayLogByReactionToggle: false,
+		displayRenderAnalysisToggle: false,
 		// onChange handlers for state
 		date: "01-01-2021",
 		meal: "Breakfast",
@@ -93,6 +94,14 @@ export default class Foods extends Component {
 			displayLogByReactionToggle: !prevState.displayLogByReactionToggle,
 		}));
 		console.log(this.state.displayLogByReactionToggle);
+	};
+
+	// toggle for render analysis by render analysis button
+	displayRenderAnalysisToggle = () => {
+		this.setState((prevState) => ({
+			displayRenderAnalysisToggle: !prevState.displayRenderAnalysisToggle,
+		}));
+		console.log(this.state.displayRenderAnalysisToggle);
 	};
 
 	// delete saved food
@@ -463,12 +472,12 @@ export default class Foods extends Component {
 		);
 	};
 
-	renderData = () => {
+	renderAnalysis = () => {
 		// THIS FUNCTION DISPLAYS
 		// FOOD, RXN DESCRIPTION, AND VALUES
 		let reactions = this.state.reactions;
 		let foods = Object.keys(reactions);
-		console.log("food keys: ", foods);
+
 		{
 			foods.map((food) => {
 				let reactionDescriptions = reactions[food];
@@ -493,31 +502,24 @@ export default class Foods extends Component {
 						value
 					);
 
-					this.renderFoodData(food, singleDescription, value);
+					// return (
+					// 	<>
+					// 		<div>{(food, singleDescription, value)}</div>
+					// 	</>
+					// );
 				});
-
-				// log each reaction description individually
-
-				// console.log('for food: ', food, 'reaction is: ', reaction, 'with a value of: ', value)
-
-				// for food: done
-				// reaction is: need to loop through each response key and return that
-				// with a value of: return the value from the response key
 			});
 		}
-		// for each rxn in reactionkeys:
-		// for each rxn in food
-		// return value from rxn that has highest keys, moderate keys, low keys
 	};
 
-	renderFoodData(foodName, description, value) {
-		console.log(foodName, description, value);
-		return (
-			<>
-				<div>{(foodName, description, value)}</div>
-			</>
-		);
-	}
+	// renderFoodData(foodName, description, value) {
+	// 	console.log(foodName, description, value);
+	// 	return (
+	// 		<>
+	// 			<div>{(foodName, description, value)}</div>
+	// 		</>
+	// 	);
+	// }
 
 	render() {
 		return (
@@ -645,7 +647,13 @@ export default class Foods extends Component {
 						<div id="bottom-div">
 							<b>Food Sensitivity Analysis</b>
 							<div>
-								<button onClick={this.renderData}>Render Data</button> <br />
+								<button onClick={this.displayRenderAnalysisToggle}>
+									Render Analysis
+								</button>{" "}
+								<br />
+								{this.state.displayRenderAnalysisToggle
+									? this.renderAnalysis()
+									: null}
 							</div>
 						</div>
 					</div>

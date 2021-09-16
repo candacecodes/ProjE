@@ -473,52 +473,41 @@ export default class Foods extends Component {
 	};
 
 	renderAnalysis = () => {
-		// THIS FUNCTION DISPLAYS
-		// FOOD, RXN DESCRIPTION, AND VALUES
 		let reactions = this.state.reactions;
 		let foods = Object.keys(reactions);
+		foods.map((food) => {
+			let reactionDescriptions = reactions[food];
+			let reactionDescriptionKeys = Object.keys(reactionDescriptions);
+			console.log(
+				"reaction descriptions ",
+				reactionDescriptions,
+				"keys: ",
+				reactionDescriptionKeys
+			);
+			let responseKey = Object.keys(reactionDescriptions);
+			console.log("response keys: ", responseKey);
 
-		{
-			foods.map((food) => {
-				let reactionDescriptions = reactions[food];
-				let reactionDescriptionKeys = Object.keys(reactionDescriptions);
+			responseKey.map((singleDescription) => {
+				let value = reactionDescriptions[singleDescription];
 				console.log(
-					"reaction descriptions ",
-					reactionDescriptions,
-					"keys: ",
-					reactionDescriptionKeys
+					"food is ",
+					food,
+					"description is ",
+					singleDescription,
+					"value is",
+					value
 				);
-				let responseKey = Object.keys(reactionDescriptions);
-				console.log("response keys: ", responseKey);
 
-				responseKey.map((singleDescription) => {
-					let value = reactionDescriptions[singleDescription];
-					console.log(
-						"food is ",
-						food,
-						"description is ",
-						singleDescription,
-						"value is",
-						value
-					);
-
-					// return (
-					// 	<>
-					// 		<div>{(food, singleDescription, value)}</div>
-					// 	</>
-					// );
-				});
+				// RETURN VALUE NOT SHOWING
+				return <div> {(food, singleDescription, value)} </div>;
 			});
-		}
+		});
 	};
 
 	// renderFoodData(foodName, description, value) {
 	// 	console.log(foodName, description, value);
-	// 	return (
-	// 		<>
-	// 			<div>{(foodName, description, value)}</div>
-	// 		</>
-	// 	);
+
+	// 	return <div> {(foodName, description, value)} </div>;
 	// }
 
 	render() {

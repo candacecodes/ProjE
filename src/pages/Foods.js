@@ -103,7 +103,7 @@ export default class Foods extends Component {
 		console.log(this.state);
 	};
 
-	// render food list after clicking food list
+	// render food list after clicking food list button
 	renderFoods = () => {
 		// console.log(this.state.foodLog);
 		return (
@@ -463,10 +463,9 @@ export default class Foods extends Component {
 		);
 	};
 
-	renderHighest = () => {
+	renderData = () => {
 		// THIS FUNCTION DISPLAYS
 		// FOOD, RXN DESCRIPTION, AND VALUES
-		// probably should rename this to render data
 		let reactions = this.state.reactions;
 		let foods = Object.keys(reactions);
 		console.log("food keys: ", foods);
@@ -493,6 +492,8 @@ export default class Foods extends Component {
 						"value is",
 						value
 					);
+
+					this.renderFoodData(food, singleDescription, value);
 				});
 
 				// log each reaction description individually
@@ -508,6 +509,15 @@ export default class Foods extends Component {
 		// for each rxn in food
 		// return value from rxn that has highest keys, moderate keys, low keys
 	};
+
+	renderFoodData(foodName, description, value) {
+		console.log(foodName, description, value);
+		return (
+			<>
+				<div>{(foodName, description, value)}</div>
+			</>
+		);
+	}
 
 	render() {
 		return (
@@ -635,9 +645,7 @@ export default class Foods extends Component {
 						<div id="bottom-div">
 							<b>Food Sensitivity Analysis</b>
 							<div>
-								<button onClick={this.renderHighest}>Render Highest</button>{" "}
-								<br /> <button>Render Moderate</button> <br />{" "}
-								<button>Render Lowest</button>
+								<button onClick={this.renderData}>Render Data</button> <br />
 							</div>
 						</div>
 					</div>

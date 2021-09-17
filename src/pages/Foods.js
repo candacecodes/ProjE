@@ -475,7 +475,7 @@ export default class Foods extends Component {
 	renderAnalysis = () => {
 		let reactions = this.state.reactions;
 		let foods = Object.keys(reactions);
-		foods.map((food) => {
+		return foods.map((food) => {
 			let reactionDescriptions = reactions[food];
 			let reactionDescriptionKeys = Object.keys(reactionDescriptions);
 			console.log(
@@ -487,7 +487,7 @@ export default class Foods extends Component {
 			let responseKey = Object.keys(reactionDescriptions);
 			console.log("response keys: ", responseKey);
 
-			responseKey.map((singleDescription) => {
+			return responseKey.map((singleDescription) => {
 				let value = reactionDescriptions[singleDescription];
 				console.log(
 					"food is ",
@@ -499,7 +499,11 @@ export default class Foods extends Component {
 				);
 
 				// RETURN VALUE NOT SHOWING
-				return <div> {(food, singleDescription, value)} </div>;
+				return (
+					<div>
+						{food} {singleDescription} {value}{" "}
+					</div>
+				);
 			});
 		});
 	};

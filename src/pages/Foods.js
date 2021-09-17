@@ -640,7 +640,11 @@ export default class Foods extends Component {
 						<div id="bottom-div">
 							<b>Food Sensitivity Analysis</b>
 							<div>
-								<button onClick={this.displayRenderAnalysisToggle}>
+								<button
+									class="button"
+									id="big-button"
+									onClick={this.displayRenderAnalysisToggle}
+								>
 									Render Analysis
 								</button>{" "}
 								<br />

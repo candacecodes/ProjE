@@ -21,7 +21,7 @@ export default class Foods extends Component {
 		date: "01-01-2021",
 		meal: "Breakfast",
 		foodsSelected: [],
-		reaction: "neutral",
+		reaction: "Dry Skin",
 
 		// used for when filtering food entries
 		dateFilter: [],
@@ -487,6 +487,7 @@ export default class Foods extends Component {
 			let responseKey = Object.keys(reactionDescriptions);
 			console.log("response keys: ", responseKey);
 
+			// RUNS THROUGH RESPONSE KEYS TO RENDER VALUES
 			return responseKey.map((singleDescription) => {
 				let value = reactionDescriptions[singleDescription];
 				console.log(
@@ -498,7 +499,6 @@ export default class Foods extends Component {
 					value
 				);
 
-				// RETURN VALUE NOT SHOWING
 				return (
 					<div>
 						{food} {singleDescription} {value}{" "}

@@ -499,11 +499,20 @@ export default class Foods extends Component {
 					value
 				);
 
-				return (
-					<div>
-						{food} {singleDescription} {value}{" "}
-					</div>
-				);
+				if (
+					singleDescription == "Thickened, cracked, scaly skin" &&
+					value > 5
+				) {
+					return <div>Possible Severe Allergy: {food}</div>;
+				}
+
+				if (singleDescription == "Itching" && value > 5) {
+					return <div>Possible Moderate Allergy: {food}</div>;
+				}
+
+				if (singleDescription == "Dry Skin" && value > 5) {
+					return <div>Possible Slight Allergy: {food}</div>;
+				}
 			});
 		});
 	};

@@ -170,14 +170,12 @@ h3 {
 		rgba(203, 194, 194, 1) 100%
 	);
 	display: grid;
-	width: 60%;
 	height: 250px;
 	margin: 20px;
 	border-radius: 25px;
 	border: 2px solid white;
 	padding: 20px;
 	/* place-items: center; */
-	align-content: left;
 	margin: auto;
 	color: white;
 }

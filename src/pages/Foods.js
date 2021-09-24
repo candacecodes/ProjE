@@ -151,7 +151,7 @@ export default class Foods extends Component {
 					></input>
 					<br />
 					<br />
-					Select Meal <br />
+					{/* Select Meal <br />
 					<select
 						class="select-bar"
 						id="select-meal"
@@ -166,8 +166,8 @@ export default class Foods extends Component {
 						</option>
 					</select>
 					<br />
-					<br />
-					Contained which foods?
+					<br /> */}
+					Contained Which Foods?
 					<br />
 					{this.state.food.map((item) => {
 						return (
@@ -501,16 +501,16 @@ export default class Foods extends Component {
 
 				if (
 					singleDescription == "Thickened, cracked, scaly skin" &&
-					value > 5
+					value > 3
 				) {
 					return <div>Possible Severe Allergen: {food}</div>;
 				}
 
-				if (singleDescription == "Itching" && value > 5) {
+				if (singleDescription == "Itching" && value > 3) {
 					return <div>Possible Moderate Allergen: {food}</div>;
 				}
 
-				if (singleDescription == "Dry Skin" && value > 5) {
+				if (singleDescription == "Dry Skin" && value > 3) {
 					return <div>Possible Slight Allergen: {food}</div>;
 				}
 			});
@@ -526,7 +526,7 @@ export default class Foods extends Component {
 	render() {
 		return (
 			<>
-				<h3>Food Sensitivity Analytics</h3>
+				<h3>Food Sensitivity Tracker & Analysis</h3>
 				<div class="sidenav">
 					<a href="#">About</a>
 					<a href="#">Services</a>

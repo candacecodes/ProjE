@@ -169,7 +169,6 @@ h3 {
 		rgba(173, 166, 166, 1) 0%,
 		rgba(203, 194, 194, 1) 100%
 	);
-	/* display: grid; */
 	float: left;
 	height: 250px;
 	margin: 20px;
@@ -195,7 +194,12 @@ h3 {
 	margin: auto;
 	color: white;
 	width: 32%;
-	background-color: red;
+	background: rgb(100, 149, 237);
+	background: linear-gradient(
+		45deg,
+		rgb(100, 125, 237) 0%,
+		rgb(122, 206, 245) 100%
+	);
 }
 
 h4 {

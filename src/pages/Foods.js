@@ -663,7 +663,7 @@ export default class Foods extends Component {
 							</div>
 						</div>
 					</div>
-					{/* <div id="bottom-right-div">Next to Bottom Div </div> */}
+					<div id="bottom-right-div"> My Profile </div>
 				</div>
 			</>
 		);

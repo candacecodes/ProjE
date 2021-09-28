@@ -169,7 +169,8 @@ h3 {
 		rgba(173, 166, 166, 1) 0%,
 		rgba(203, 194, 194, 1) 100%
 	);
-	display: grid;
+	/* display: grid; */
+	float: left;
 	height: 250px;
 	margin: 20px;
 	border-radius: 25px;
@@ -178,7 +179,23 @@ h3 {
 	/* place-items: center; */
 	margin: auto;
 	color: white;
-	width: 80%;
+	width: 52%;
+}
+
+#bottom-right-div {
+	float: left;
+	height: 240px;
+	margin: 20px;
+	border-radius: 25px;
+	border: 2px solid white;
+	padding: 25px;
+	border-left: 15px;
+	border-right: 10px;
+	/* place-items: center; */
+	margin: auto;
+	color: white;
+	width: 32%;
+	background-color: red;
 }
 
 h4 {

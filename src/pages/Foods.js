@@ -647,14 +647,16 @@ export default class Foods extends Component {
 
 					<div>
 						<div id="bottom-div">
-							<b>Food Sensitivity Analysis</b>
+							<b> Food Sensitivity </b>
+							<br />
 							<div>
+								<br />
 								<button
 									class="button"
 									id="big-button"
 									onClick={this.displayRenderAnalysisToggle}
 								>
-									Render Analysis
+									Show Analysis and Results
 								</button>{" "}
 								<br />
 								{this.state.displayRenderAnalysisToggle
@@ -663,7 +665,12 @@ export default class Foods extends Component {
 							</div>
 						</div>
 					</div>
-					<div id="bottom-right-div"> My Profile </div>
+					<div id="bottom-right-div">
+						{" "}
+						<b> My Profile </b>
+						<br />
+						<br /> Name <br /> Age <br /> Known Allergies
+					</div>
 				</div>
 			</>
 		);
